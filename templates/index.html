@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shorter Links</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Shorter Links</h1>
+    <form action="/" method="post">
+      <input type="link" name="longlink" id="longlink" placeholder="Enter LINK" />
+      <input type="submit" value="Shorten" />
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %} {% if shortlink %}
+    <p>
+      Here is your shortened LINK
+      <a href="{{ host }}{{ shortlink }}">{{ host }}{{ shortlink }}</a>
+    </p>
+    {% endif %}
+  </body>
+</html>
